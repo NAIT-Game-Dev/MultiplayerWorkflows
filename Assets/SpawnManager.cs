@@ -35,7 +35,7 @@ public class SpawnManager : MonoBehaviour
         {
             gamepadID.Clear();
             Destroy(players[0]);
-            players.Clear();
+            players.Clear();                        
         }
         
         // If a gamepad got disconnected then find the player object that was connected to it
@@ -57,9 +57,9 @@ public class SpawnManager : MonoBehaviour
                 // If the gamepadID was not found then remove at that index from both lists and destroy the player object
                 if (!found)
                 {
-                    gamepadID.RemoveAt(i);                    
-                    players.RemoveAt(i);
+                    gamepadID.RemoveAt(i);
                     Destroy(players[i]);
+                    players.RemoveAt(i);                    
                 }
             }
             // Update the playerIDs so that all gamepads will control the player objects that they did before
