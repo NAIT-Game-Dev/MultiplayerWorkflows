@@ -249,6 +249,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 3843022754348767780, guid: 7257e4930030a8c44be15ea58fe77dc9, type: 3}
   players: []
   gamepadID: 
+  destroyOnDisconnect: 1
 --- !u!4 &902986262
 Transform:
   m_ObjectHideFlags: 0

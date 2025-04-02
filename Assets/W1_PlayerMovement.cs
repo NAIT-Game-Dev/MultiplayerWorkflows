@@ -56,64 +56,67 @@ public class W1_PlayerMovement : MonoBehaviour
         //}
         #endregion
 
-        #region Controller Input for Gamepad
-        // playerID is the index of the gamepad in the Gamepad list. Make sure the playerID does not exceed the number of gamepads plugged in.
-        if (Gamepad.all.Count > playerID)
+        if (playerID != -1)
         {
-            #region IsPressed
-            // use the controls of the gamepad in the list based on the playerID index. In this example we are setting values based on whether the control is pressed.
-            //if (Gamepad.all[playerID].leftStick.up.isPressed)
-            //{
-            //    forward = 1;
-            //}
-            //else
-            //{
-            //    forward = 0;
-            //}
+            #region Controller Input for Gamepad
+            // playerID is the index of the gamepad in the Gamepad list. Make sure the playerID does not exceed the number of gamepads plugged in.
+            if (Gamepad.all.Count > playerID)
+            {
+                #region IsPressed
+                // use the controls of the gamepad in the list based on the playerID index. In this example we are setting values based on whether the control is pressed.
+                //if (Gamepad.all[playerID].leftStick.up.isPressed)
+                //{
+                //    forward = 1;
+                //}
+                //else
+                //{
+                //    forward = 0;
+                //}
 
-            //if (Gamepad.all[playerID].leftStick.down.isPressed)
-            //{
-            //    backward = 1;
-            //}
-            //else
-            //{
-            //    backward = 0;
-            //}
+                //if (Gamepad.all[playerID].leftStick.down.isPressed)
+                //{
+                //    backward = 1;
+                //}
+                //else
+                //{
+                //    backward = 0;
+                //}
 
-            //if (Gamepad.all[playerID].leftStick.right.isPressed)
-            //{
-            //    right = 1;
-            //}
-            //else
-            //{
-            //    right = 0;
-            //}
+                //if (Gamepad.all[playerID].leftStick.right.isPressed)
+                //{
+                //    right = 1;
+                //}
+                //else
+                //{
+                //    right = 0;
+                //}
 
-            //if (Gamepad.all[playerID].leftStick.left.isPressed)
-            //{
-            //    left = 1;
-            //}
-            //else
-            //{
-            //    left = 0;
-            //}
+                //if (Gamepad.all[playerID].leftStick.left.isPressed)
+                //{
+                //    left = 1;
+                //}
+                //else
+                //{
+                //    left = 0;
+                //}
 
-            //xValue = right - left;
-            //zValue = forward - backward;
-            #endregion
+                //xValue = right - left;
+                //zValue = forward - backward;
+                #endregion
 
-            #region Value
-            // use the controls of the gamepad in the list based on the playerID index. In this example we are getting the float values of the left stick controls.
-            forward = Gamepad.all[playerID].leftStick.up.value;
-            backward = Gamepad.all[playerID].leftStick.down.value;
-            right = Gamepad.all[playerID].leftStick.right.value;
-            left = Gamepad.all[playerID].leftStick.left.value;
+                #region Value
+                // use the controls of the gamepad in the list based on the playerID index. In this example we are getting the float values of the left stick controls.
+                forward = Gamepad.all[playerID].leftStick.up.value;
+                backward = Gamepad.all[playerID].leftStick.down.value;
+                right = Gamepad.all[playerID].leftStick.right.value;
+                left = Gamepad.all[playerID].leftStick.left.value;
 
-            xValue = right - left;
-            zValue = forward - backward;
+                xValue = right - left;
+                zValue = forward - backward;
+                #endregion
+            }
             #endregion
         }
-        #endregion        
     }
 
     private void FixedUpdate()
@@ -126,6 +129,12 @@ public class W1_PlayerMovement : MonoBehaviour
     {
         // set the player id to the index of the gamepad in use.
         playerID = id;
+    }
+
+    public int GetPlayerID()
+    {
+        // return the player id.
+        return playerID;
     }
 
     public int GetGamepadID()
