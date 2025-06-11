@@ -2,11 +2,15 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Lobby : MonoBehaviour
 {
     [SerializeField] GamepadManager gamepadManager;
     [SerializeField] List<TMP_Text> playerText;
+    [SerializeField] Button startButton;
+
+    [SerializeField] List<GameObject> playerObjects;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +39,24 @@ public class Lobby : MonoBehaviour
             {
                 playerText[i].text = "Disconnected";
             }
+        }
+
+        if (gamepadManager.PlayerCount() == 0)
+        {
+            startButton.interactable = false;
+        }
+        else
+        {
+            startButton.interactable = true;
+        }
+    }
+
+    public void StartGame()
+    {
+        for (int i = 0; i < gamepadManager.PlayerCount(); i++)
+        {
+            playerObjects[i].GetComponent<W2_PlayerMovement>().SetGamepadID(gamepadManager.PlayerStatus(i));
+            playerObjects[i].SetActive(true);
         }
     }
 }
