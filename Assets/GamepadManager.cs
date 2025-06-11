@@ -16,17 +16,6 @@ public class GamepadManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Gamepad.current != null)
-        {
-            if (Gamepad.current.startButton.wasPressedThisFrame)
-            {
-                if (!gamepadID.Contains(Gamepad.current.deviceId))
-                {
-                    gamepadID.Add(Gamepad.current.deviceId);
-                }
-            }
-        }
-
         // If a gamepad got disconnected then find the player object that was connected to it
         if (Gamepad.all.Count < gamepadsConnected)
         {
@@ -72,5 +61,23 @@ public class GamepadManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void PlayerJoined(int id)
+    {
+        if (!gamepadID.Contains(id))
+        {
+            gamepadID.Add(id);
+        }
+    }
+
+    public int PlayerCount()
+    {
+        return gamepadID.Count;
+    }
+
+    public int PlayerStatus(int index)
+    {
+        return gamepadID[index];
     }
 }
