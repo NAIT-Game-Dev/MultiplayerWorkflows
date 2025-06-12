@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class W2_PlayerMovement : MonoBehaviour
 {
@@ -19,15 +20,9 @@ public class W2_PlayerMovement : MonoBehaviour
         if (gamepadID != -1)
         {
             #region Controller Input for Gamepad
-            if (Gamepad.current.deviceId == gamepadID)
-            {
-                Debug.Log(Gamepad.current.deviceId);
-                moveValue = moveAction.ReadValue<Vector2>();
-            }
-            else
-            {
-                moveValue = Vector2.zero;
-            }
+          
+            //moveValue = moveAction.ReadValue<Vector2>();
+
             #endregion
         }
     }
@@ -59,4 +54,14 @@ public class W2_PlayerMovement : MonoBehaviour
     {
         moveAction.Disable();
     }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        moveValue = context.ReadValue<Vector2>();
+    }
+
+    //public void OnMove(InputValue value)
+    //{
+    //    moveValue = value.Get<Vector2>();
+    //}
 }

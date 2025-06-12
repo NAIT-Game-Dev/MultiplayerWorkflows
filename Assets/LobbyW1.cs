@@ -4,13 +4,15 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class Lobby : MonoBehaviour
+public class LobbyW1 : MonoBehaviour
 {
     [SerializeField] GamepadManager gamepadManager;
     [SerializeField] List<TMP_Text> playerText;
     [SerializeField] Button startButton;
 
     [SerializeField] List<GameObject> playerObjects;
+
+    [SerializeField] PlayerInputManager playerInputManager;
 
     // Start is called before the first frame update
     void Start()
@@ -55,8 +57,8 @@ public class Lobby : MonoBehaviour
     {
         for (int i = 0; i < gamepadManager.PlayerCount(); i++)
         {
-            playerObjects[i].GetComponent<W2_PlayerMovement>().SetGamepadID(gamepadManager.PlayerStatus(i));
+            playerObjects[i].GetComponent<W1_V2_PlayerMovement>().SetGamepadID(gamepadManager.PlayerStatus(i));
             playerObjects[i].SetActive(true);
-        }
+        }        
     }
 }
