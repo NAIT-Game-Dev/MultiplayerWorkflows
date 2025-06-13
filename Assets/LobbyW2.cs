@@ -10,9 +10,11 @@ public class LobbyW2 : MonoBehaviour
     [SerializeField] List<TMP_Text> playerText;
     [SerializeField] Button startButton;
 
-    //[SerializeField] List<GameObject> playerObjects;
+    [SerializeField] GameObject lobbyPanel;
 
     [SerializeField] PlayerInputManager playerInputManager;
+
+    [SerializeField] GameObject[] spawnLocations;
 
     // Start is called before the first frame update
     void Start()
@@ -57,8 +59,9 @@ public class LobbyW2 : MonoBehaviour
     {
         for (int i = 0; i < gamepadManager.PlayerCount(); i++)
         {
-            //playerObjects[i].GetComponent<W2_PlayerMovement>().SetGamepadID(gamepadManager.PlayerStatus(i));
-            //playerObjects[i].SetActive(true);
-        }        
+            PlayerInput player = playerInputManager.JoinPlayer(i, -1, null, Gamepad.all[i]);
+            player.transform.position = spawnLocations[i].transform.position;
+        }
+        gameObject.SetActive(false);
     }
 }

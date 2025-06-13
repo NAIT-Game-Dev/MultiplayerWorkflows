@@ -463,8 +463,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -723,7 +723,7 @@ MonoBehaviour:
   m_NotificationBehavior: 0
   m_MaxPlayerCount: 4
   m_AllowJoining: 1
-  m_JoinBehavior: 0
+  m_JoinBehavior: 2
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1083,8 +1083,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1715008754}
-        m_TargetAssemblyTypeName: Lobby, Assembly-CSharp
+      - m_Target: {fileID: 1715008756}
+        m_TargetAssemblyTypeName: LobbyW2, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
@@ -1490,7 +1490,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1715008755}
-  - component: {fileID: 1715008754}
+  - component: {fileID: 1715008756}
   m_Layer: 0
   m_Name: Lobby
   m_TagString: Untagged
@@ -1498,31 +1498,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1715008754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1715008753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ec56b95cbe15604eb2e414a2490aead, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gamepadManager: {fileID: 0}
-  playerText:
-  - {fileID: 1713508431}
-  - {fileID: 742373680}
-  - {fileID: 1140131421}
-  - {fileID: 1657530769}
-  startButton: {fileID: 1504887424}
-  playerObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  playerInputManager: {fileID: 0}
 --- !u!4 &1715008755
 Transform:
   m_ObjectHideFlags: 0
@@ -1539,6 +1514,32 @@ Transform:
   - {fileID: 306910099}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1715008756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715008753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c38d649e74073d84dbb0f9c46a73d6d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamepadManager: {fileID: 76043252}
+  playerText:
+  - {fileID: 1713508431}
+  - {fileID: 742373680}
+  - {fileID: 1140131421}
+  - {fileID: 1657530769}
+  startButton: {fileID: 1504887424}
+  lobbyPanel: {fileID: 1536690839}
+  playerInputManager: {fileID: 1048887557}
+  spawnLocations:
+  - {fileID: 1408830018}
+  - {fileID: 1034517506}
+  - {fileID: 972040851}
+  - {fileID: 1746224091}
 --- !u!1 &1746224091
 GameObject:
   m_ObjectHideFlags: 0
